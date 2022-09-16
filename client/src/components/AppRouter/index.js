@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useRoutes } from 'react-router-dom';
+import { Context } from '../..';
 import Admin from '../../pages/Admin';
 import Auth from '../../pages/Auth';
 import Basket from '../../pages/Basket';
@@ -9,8 +10,10 @@ import { ADMIN_ROUTE, BASKET_ROUTE, DEVICE_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUT
 import './style.scss';
 
 const AppRouter = () => {
-    const isAuth = false;
-    let publicRoutes = useRoutes([
+  const {user} = useContext(Context)  
+  console.log(user)
+  
+      let publicRoutes = useRoutes([
         {
           path: SHOP_ROUTE,
           element: <Shop />,
@@ -44,7 +47,7 @@ const AppRouter = () => {
     ]);
     return (
         <>
-        {publicRoutes} {isAuth && authRoutes}
+        {publicRoutes} {user.isAuth && authRoutes}
         </>
     );
 };
