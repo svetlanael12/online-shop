@@ -1,10 +1,10 @@
 import React, { createContext } from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';
 import DeviceStore from './store/DeviceStore';
 import UserStore from './store/UserStore';
+import './nullstyle.scss';
 
 export const Context = createContext(null)
 
@@ -14,11 +14,9 @@ root.render(
     user: new UserStore(),
     device: new DeviceStore(),
   }}>
-    <BrowserRouter> 
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    </BrowserRouter>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
   </Context.Provider>
 );
 

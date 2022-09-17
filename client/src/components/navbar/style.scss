@@ -1,0 +1,66 @@
+@import '../../partial';
+
+.Nav {
+    background-color: $basic-color;
+    color: #fff;
+
+    &-container {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &-Logo {
+        margin: auto;
+        font-size: 4.2rem;
+        font-weight: 700;
+        color: inherit;
+    }
+
+    &-List {
+        display: flex;
+        justify-content: end;
+        flex-wrap: wrap;
+    }
+
+    &-item {
+        width: 15rem;
+        margin: 0.5rem 0 0.5rem 1rem;
+    }
+
+    &-button {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.6rem;
+        color: inherit;
+
+        background-color: transparent;
+        border: 2px solid #fff;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+            -webkit-box-shadow: 0px 0px 31px 29px rgba(53, 34, 80, 0.24);
+            -moz-box-shadow: 0px 0px 31px 29px rgba(53, 34, 80, 0.24); 
+            box-shadow: 0px 0px 10px 10px rgba(53, 34, 80, 0.24);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .Nav-Logo {
+        font-size: 2.8rem;
+    }
+
+    .Nav-item {
+        width: 10rem;
+    }
+
+    .Nav-button {
+        padding: 0.8rem;
+        font-size: 1.2rem;
+    }
+}
+
+

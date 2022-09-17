@@ -11,10 +11,10 @@ export default class DeviceStore {
             {id: 2, name: 'Apple'}
         ]
         this._devices = [
-            {id: 1, name: "Iphone 12 pro", price: 25000, rating: 5, img: 'https://ke-images.servicecdn.ru/c1vj0o9s4p4727roo8ag/original.jpg'},
-            {id: 1, name: "Iphone 12 pro", price: 25000, rating: 5, img: 'https://ke-images.servicecdn.ru/c1vj0o9s4p4727roo8ag/original.jpg'},
-            {id: 1, name: "Iphone 12 pro", price: 25000, rating: 5, img: 'https://ke-images.servicecdn.ru/c1vj0o9s4p4727roo8ag/original.jpg'},
-            {id: 1, name: "Iphone 12 pro", price: 25000, rating: 5, img: 'https://ke-images.servicecdn.ru/c1vj0o9s4p4727roo8ag/original.jpg'},
+            {id: 1, name: "Iphone 12 pro", price: 25000, rating: 5, img: 'https://avatars.mds.yandex.net/get-mpic/4932805/img_id320032172410367143.png/orig'},
+            {id: 1, name: "Iphone 12 pro", price: 25000, rating: 5, img: 'https://avatars.mds.yandex.net/get-mpic/4932805/img_id320032172410367143.png/orig'},
+            {id: 1, name: "Iphone 12 pro", price: 25000, rating: 5, img: 'https://avatars.mds.yandex.net/get-mpic/4932805/img_id320032172410367143.png/orig'},
+            {id: 1, name: "Iphone 12 pro", price: 25000, rating: 5, img: 'https://avatars.mds.yandex.net/get-mpic/4932805/img_id320032172410367143.png/orig'},
         ]
         makeAutoObservable(this)
     }

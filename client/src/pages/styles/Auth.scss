@@ -1,0 +1,153 @@
+@import '../../partial';
+
+.Auth-container {
+   width: 70%;
+}
+
+.card-div {
+    margin: 2rem;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    border: 2px solid $basic-color;
+    border-radius: 5px;
+}
+
+.Auth-title {
+    color: $basic-color;
+    font-size: 2.4rem;
+}
+
+.Form {
+   width: 90%;
+
+    &-Input {
+        margin-top: 2rem;
+        padding: 1rem;
+        font-size: 1.6rem;
+        color: $basic-color;
+        width: 100%;
+
+        border: 1px solid $basic-color;
+        border-radius: 2px;
+        outline: none;
+        -moz-outline: none;
+        -webkit-outline: none;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+
+        &::placeholder {
+            color: $basic-color;
+        }
+
+        &:focus {
+            outline: 2px solid $basic-color;
+        }   
+    }
+
+    &_ul_list-buttons {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+
+        li:nth-child(2){
+            display: flex;
+            justify-content: end;
+            width: 300px;
+        }
+    }
+
+
+    &_text_left-btn {
+        font-size: 1.4rem;
+        width: 250px;
+
+        span {
+            font-size: 1.4rem;
+            color: #ff1e00;
+        }
+    }
+
+    &_button_auth-btn {
+        width: max-content;
+        padding: 1rem;
+        margin-left: 1rem;
+
+        font-size: 1.8rem;
+        color: $basic-color;
+        background-color: transparent;
+
+        border: 1px solid $basic-color;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}
+
+.input-type-password-container {
+    width: 100%;
+    position: relative;
+}
+
+.btn-show-password {
+    position: absolute;
+    content: '';
+
+    top: 2rem;
+    right: 0;
+    width: 52px;
+    height: calc(100% - 2rem);
+
+    background-image: url('../../svg/not-visible-eye.svg');
+    background-repeat: no-repeat;
+    background-size: 22px;
+    background-position: center;
+    background-color: transparent;
+
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .Auth-container {
+        width: 90%;
+    }   
+}
+
+@media (max-width: 860px) {
+    .Form {
+        &-Input::placeholder {
+            font-size: 1.4rem;
+        }
+
+        &_ul_list-buttons {
+            flex-direction: column;
+    
+            li:nth-child(2) {
+                order: -1;
+            }
+        }
+
+        &_ul_list-buttons,
+        &_ul_list-buttons li,
+        &_ul_list-buttons li:nth-child(2),
+        &_text_left-btn,
+        &_button_auth-btn {
+            width: 100%;
+        }
+
+        &_text_left-btn {
+            margin-top: 2rem;
+        }
+    
+        &_button_auth-btn {
+            font-size: 1.4rem;
+            margin-left: 0;
+        }
+    }
+}
