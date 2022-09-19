@@ -11,7 +11,6 @@ import './style.scss';
 
 const AppRouter = () => {
   const {user} = useContext(Context)  
-  console.log(user)
   
       let publicRoutes = useRoutes([
         {

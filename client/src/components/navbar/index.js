@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Context } from '../..';
 import { LOGIN_ROUTE, SHOP_ROUTE } from '../../utils/consts';
 import {observer} from 'mobx-react-lite';
-import { cn } from '@bem-react/classname'
+import { cn } from '@bem-react/classname';
 import './style.scss';
 
 const NavBar = observer(() => {
@@ -28,7 +28,7 @@ const NavBar = observer(() => {
                 <ul className={nav('List')}>
                     <li className={nav('item')}>
                         <NavLink to={LOGIN_ROUTE}>
-                            <button className={nav('button')} onClick={console.log('click')}>Авторизация</button>
+                            <button className={nav('button')}>Авторизация</button>
                         </NavLink>
                     </li>
                 </ul>

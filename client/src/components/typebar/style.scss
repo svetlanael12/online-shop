@@ -1,0 +1,27 @@
+@import '../../partial';
+
+.TypeBar {
+    width: 23rem;
+}
+
+.TypeBar-item {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 0.3rem;
+    font-size: 1.6rem;
+    color: $basic-color;
+    font-weight: 500;
+    user-select: none; 
+        -ms-user-select: none; 
+	    -moz-user-select: none; 
+	    -webkit-user-select: none; 
+    cursor: pointer;
+    border: 1px solid $basic-color;
+    border-radius: 3px;
+
+    &:hover {
+        -webkit-box-shadow: 0px 0px 10px 4px #2a06715a;
+        -moz-box-shadow: 0px 0px 10px 4px #2a06715a; 
+        box-shadow: 0px 0px 10px 4px #2a06715a;
+    }
+}
