@@ -13,11 +13,18 @@ const TypeBar = observer(() => {
             {device.types.map(type => <li
                 className={`${typeBar('item')} ${(type.id === device.selectedType.id) ? 'active': ''}`}
                 key={type.id}
-                onClick={() => {
+                onClick={(e) => {
                     device.setSelectedType(type)
                 }}
             >{type.name}
             </li>)}
+            <li 
+                className={typeBar('item', {btn: 'remove'})}
+                onClick={(e) => {
+                    device.setSelectedType({})
+                    device.setSelectedBrand({})
+                }}
+            >&times; Сбросить фильтры</li>
         </ul>
     );
 });

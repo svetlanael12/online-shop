@@ -1,0 +1,57 @@
+@import '../../partial';
+
+.DeviceCard {
+    max-width: 200px;
+    padding: 1rem;
+    margin: auto;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+
+    &:hover {
+        border: 1px solid $basic-color;
+        border-radius: 5px;
+        @extend %box-shadow;
+    }
+}
+
+.DeviceCard-text {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.DeviceCard-title {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: $basic-color;
+}
+
+.DeviceCard-title_name_brand {
+    width: 100%;
+    color: rgba(0, 0, 0, 0.378)!important;
+}
+
+.DeviceCard-title_span_price {
+    width: 100%;
+    margin-top: 0.5rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.DeviceCard-rating {
+    display: flex;
+    align-items: center;
+}
+
+.DeviceCard-rating-number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: $basic-color;
+    padding-right: 0.2rem;
+}
+

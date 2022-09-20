@@ -1,0 +1,17 @@
+@import '../../partial';
+
+.BrandBar {
+    align-self: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+
+    &-item {
+        width: max-content;
+        margin-left: 0.3rem;
+        @extend %item-bar;
+
+        &:hover {
+            @extend %box-shadow;
+        }
+    }
+}

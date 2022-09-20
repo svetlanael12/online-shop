@@ -18,10 +18,6 @@ const AppRouter = () => {
           element: <Shop />,
         },
         {
-            path: '*',
-            element: <Shop />,
-          },
-        {
           path: LOGIN_ROUTE,
           element: <Auth />,
         },

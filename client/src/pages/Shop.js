@@ -1,14 +1,17 @@
 import React from 'react';
+import BrandBar from '../components/brandbar';
+import DeviceList from '../components/deviceList';
 import TypeBar from '../components/typebar';
+import './styles/Shop.scss';
 
 const Shop = () => {
     return (
-        <section className='container'>
-            <div>тут строка брендов</div>
-            {/* тут слева блок с выбором девайса, а справа товары в 4 колонки */}
-            <div className=''>
+        <section className='container container-shop'>
                 <TypeBar />
-            </div>
+                <div className='container-shop__brandBar_and_cards'>
+                    <BrandBar />
+                    <DeviceList />
+                </div>
         </section>
     );
 };

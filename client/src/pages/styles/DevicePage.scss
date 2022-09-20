@@ -1,0 +1,94 @@
+@import '../../partial';
+
+.DevicePage {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.DevicePage-DeviceImage {
+    margin-right: 3rem;
+    align-self: flex-start;
+}
+
+.DevicePage-text {
+    width: 100%;
+}
+
+.DevicePage-text-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.DevicePage-block-descriptions {
+    max-width: 550px;
+}
+
+.DevicePage-block-basketPush {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    width: 270px;
+    height: max-content;
+    padding: 2rem;
+    margin-left: 2rem;
+
+    border: 1px solid $basic-color;
+    border-radius: 5px;
+    @extend %box-shadow;
+
+}
+
+.DevicePage-title-name {
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.DevicePage-title-price {
+    margin-top: 0.5rem;
+    color: $basic-color;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.DevicePage-title-rating {
+    margin-top: 0.2rem;
+    font-size: 1.4rem;
+    color: rgba(0, 0, 0, 0.588);
+}
+
+.DevicePage-btn-addBasket {
+    padding: 1rem;
+    margin-top: 0.5rem;
+
+    color: #fff;
+    font-size: 1.6rem;
+
+    background-color: $basic-color;
+    border: none;
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    &:hover {
+        @extend %box-shadow;
+    }
+}
+
+.DevicePage-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.DevicePage-description {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+}
+
+.DevicePage-Characteristics li {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid $basic-color;
+}
