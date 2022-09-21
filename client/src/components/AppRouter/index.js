@@ -38,7 +38,7 @@ const AppRouter = () => {
         {
             path: BASKET_ROUTE,
             element: <Basket />,
-        }
+        },
     ]);
     return (
         <>
