@@ -1,0 +1,49 @@
+@import '../../../partial';
+
+.formDeviceModal {
+    width: 100%;
+}
+
+.formDeviceModal__input {
+    margin-top: 1rem;
+}
+
+.modal__inputsInfo {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info__input {
+    width: 100%;
+    padding: 1rem;
+    margin-right: 1rem;
+    font-size: 1.4rem;
+    color: $basic-color;
+
+    border: 1px solid $basic-color;
+    border-radius: 3px;
+
+    outline: none;
+
+    &:focus {
+        outline: 1px solid $basic-color;
+    }
+}
+
+.info__button_remove {
+    padding: 0 0.7rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: red;
+    background-color: transparent;
+    border: 1px solid red;
+    border-radius: 3px;
+
+    cursor: pointer;
+}
+
+.formDeviceModal__button {
+    width: 100%;
+}

@@ -1,0 +1,80 @@
+@import '../../partial';
+
+.modal {
+    width: 100%;
+    height: 100vh;
+    padding: 2rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.626);
+}
+
+.modal-container {
+    max-width: 550px;
+    padding: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: #fff;
+}
+
+.modal-block_title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal__title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: $basic-color;
+}
+
+.modal__buttonClose {
+    font-size: 3rem;
+    font-weight: 700;
+    color: $basic-color;
+
+    background-color: transparent;
+    border: 1px solid $basic-color;
+    border-radius: 3px;
+    padding: 0 1rem;
+
+    cursor: pointer;
+}
+
+.modal__input {
+    width: 100%;
+    padding: 1rem;
+    color: $basic-color;
+    font-size: 1.4rem;
+    border: 1px solid $basic-color;
+    border-radius: 3px;
+
+    transition: none;
+    outline: none;
+
+    &:focus {
+        border: 2px solid $basic-color;
+    }
+}
+
+.modal__button {
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    color: $basic-color;
+
+    background-color: transparent;
+    border: 1px solid $basic-color;
+    border-radius: 3px;
+    padding: 1rem;
+
+    cursor: pointer;
+
+    &:hover {
+        @extend %box-shadow;
+    }
+}
