@@ -13,7 +13,7 @@ const Select = ({category, selectOptions}) => {
         listOptions.current.classList.add('none')
     }
     return (
-            <form name='select' className='form-select'>
+            <div className='form-select'>
                 <input className='select-button' type='button' value={selectValue ? selectValue : `Выберите ${category}`} onClick={showOptions}/>
                 <ul className='list-options none' ref={listOptions}>
                     {selectOptions.map((opt) => <li 
@@ -25,7 +25,7 @@ const Select = ({category, selectOptions}) => {
                         {opt.name}
                     </li>)}
                 </ul>
-            </form>
+            </div>
     );
 };
 

@@ -12,6 +12,9 @@ const CreateDevice = ({show, setVisible}) => {
     const addInfo = () => {
         setInfo([...info, {title: '', description: '', number: Date.now()}])
     }
+    const removeInfo = (number) => {
+        setInfo(info.filter(i => i.number !== number))
+    }
     return (
         <div className={`modal ${show ? 'show' : 'none'}`}> 
             <div className='modal-container'>
@@ -29,7 +32,13 @@ const CreateDevice = ({show, setVisible}) => {
                         >
                             <input placeholder='Введите свойство' className='info__input'/>
                             <input placeholder='Введите описание' className='info__input'/>
-                            <button className='info__button_remove' type='button'>&times;</button>
+                            <button 
+                            className='info__button_remove' 
+                            type='button'
+                            onClick={() => removeInfo(i.number)}
+                            >
+                                &times;
+                            </button>
                         </div>)}
                     <button onClick={(e) => {
                         e.preventDefault();

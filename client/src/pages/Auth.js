@@ -1,15 +1,39 @@
-import React, { useState } from 'react';
-import {NavLink, useLocation} from 'react-router-dom';
-import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '../utils/consts';
+import React, { useContext, useState } from 'react';
+import { Context } from '../index';
+import {NavLink, useLocation, useNavigate} from 'react-router-dom';
+import { LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE } from '../utils/consts';
+import { observer } from 'mobx-react-lite';
 
 import { cn } from '@bem-react/classname';
 import './styles/Auth.scss';
 import urlVisibleEye from '../svg/eye-visible.svg';
 import urlNotVisibleEye from '../svg/not-visible-eye.svg';
+import { login, registration } from '../http/userAPI';
 
-const Auth = () => {
+const Auth = observer(() => {
+    const {user} = useContext(Context)
     const location = useLocation()
+    const navigate = useNavigate();
     const isLogin = location.pathname === LOGIN_ROUTE
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const click = async (e) => {
+        try {
+            let data;
+            if (isLogin) {
+                data = await login(email, password)
+            } else {
+                data = await registration(email, password)
+            }
+            user.setUser(user)
+            user.setIsAuth(true)
+            navigate(SHOP_ROUTE);
+        } catch (e) {
+            alert(e.response.data.message)
+        }
+    }
 
     const form = cn('Form')
 
@@ -36,9 +60,21 @@ const Auth = () => {
                     'Регистрация'
                 }</h2>
                 <form className={`${form()}`}>
-                    <input className={form('Input')} placeholder='Введите email...' />
+                    <input 
+                    className={form('Input')} 
+                    placeholder='Введите email...' 
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    />
                     <div className='input-type-password-container'>
-                        <input className={form('Input')} placeholder='Введите пароль...' type='password' ref={fieldPassword} style={{paddingRight: '5rem'}}/>
+                        <input 
+                        className={form('Input')} 
+                        placeholder='Введите пароль...'
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                        type='password' ref={fieldPassword} 
+                        style={{paddingRight: '5rem'}}
+                        />
                         <button onClick={showPassword} className='btn-show-password'><span className='visually-hidden'>Показать пароль</span></button>
                     </div>
                     <ul className={form({ul: 'list-buttons'})}>
@@ -60,7 +96,7 @@ const Auth = () => {
                             }
                         </li>
                         <li>
-                            <button className={form({button: 'auth-btn'})}>
+                            <button className={form({button: 'auth-btn'})} onClick={click} type='button'>
                                 {
                                     isLogin ? 
                                     'Войти' : 
@@ -73,6 +109,6 @@ const Auth = () => {
             </div>
         </section>
     );
-};
+});
 
 export default Auth;
