@@ -11,7 +11,7 @@ const DeviceItem = ({device}) => {
     const deviceCard = cn('DeviceCard');
     return (
         <div className={deviceCard()} onClick={() => history(DEVICE_ROUTE + '/' + device.id)}>
-            <img src={device.img} width='150'/>
+            <img src={process.env.REACT_APP_API_URL + device.img} width='150'/>
             <div className={deviceCard('text')}>
                 <span className={deviceCard('title', {name: 'brand'})}>Apple</span>
                 <span className={deviceCard('title', {span: 'price'})}>{device.price} &#8381;</span>

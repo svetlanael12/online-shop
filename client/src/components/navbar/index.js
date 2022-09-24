@@ -9,6 +9,13 @@ import './style.scss';
 const NavBar = observer(() => {
     const {user} = useContext(Context)
     const nav = cn('Nav')
+
+    const logOut = () => {
+        user.setUser({})
+        user.setIsAuth(false)
+        localStorage.removeItem('token')
+    }
+
     return (
         <nav className={nav()}> 
         <div className={`container ${nav('container')}`}>
@@ -25,14 +32,14 @@ const NavBar = observer(() => {
                     </li>
                     <li className={nav('item')}>
                         <NavLink to={LOGIN_ROUTE}>
-                            <button className={nav('button')}>Выйти</button>
+                            <button className={nav('button')} type='button' onClick={logOut}>Выйти</button>
                         </NavLink>
                     </li>
                 </ul> :
                 <ul className={nav('List')}>
                     <li className={nav('item')}>
                         <NavLink to={LOGIN_ROUTE}>
-                            <button className={nav('button')} onClick={() => user.setIsAuth(true)}>Авторизация</button>
+                            <button className={nav('button')} type='button'>Авторизация</button>
                         </NavLink>
                     </li>
                 </ul>
