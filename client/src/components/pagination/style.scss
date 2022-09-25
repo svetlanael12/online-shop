@@ -1,0 +1,26 @@
+@import '../../partial';
+
+.pagination {
+    width: 100%;
+    display: flex;
+}
+
+.pagination-item {
+    width: 4rem;
+    height: 4rem;
+    margin: 2rem 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1.6rem;
+    color: $basic-color;
+
+    border: 1px solid $basic-color;
+
+    cursor: pointer;
+
+    &:hover {
+        @extend %box-shadow;
+    }
+}

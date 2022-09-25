@@ -3,6 +3,7 @@ import React, { useContext, useEffect } from 'react';
 import { Context } from '..';
 import BrandBar from '../components/brandbar';
 import DeviceList from '../components/deviceList';
+import Pagination from '../components/pagination';
 import TypeBar from '../components/typebar';
 import { fetchBrands, fetchDevices, fetchTypes } from '../http/DeviceAPI';
 import './styles/Shop.scss';
@@ -13,17 +14,30 @@ const Shop = observer(() => {
     useEffect(() => {
         fetchTypes().then(data => device.setTypes(data))
         fetchBrands().then(data => device.setBrands(data))
-        fetchDevices().then(data => device.setDevices(data.rows))
+        fetchDevices(null, null, 1, 3).then(data => {
+            device.setDevices(data.rows)
+            device.setTotalCount(data.count)
+        })
     }, [])
 
+    useEffect(() => {
+        fetchDevices(device.selectedType.id, device.selectedBrand.id, device.page, 3).then(data => {
+            device.setDevices(data.rows)
+            device.setTotalCount(data.count)
+        })
+    }, [device.page, device.selectedType, device.selectedBrand])
+
     return (
-        <section className='container container-shop'>
-                <TypeBar />
-                <div className='container-shop__brandBar_and_cards'>
-                    <BrandBar />
-                    <DeviceList />
-                </div>
-        </section>
+        <>
+            <section className='container container-shop'>
+                    <TypeBar />
+                    <div className='container-shop__brandBar_and_cards'>
+                        <BrandBar />
+                        <DeviceList />
+                        <Pagination />
+                    </div>
+            </section>
+        </>
     );
 });
 

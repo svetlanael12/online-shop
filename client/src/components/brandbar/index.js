@@ -14,7 +14,6 @@ const BrandBar = observer(() => {
                 key={brand.id}
                 onClick={(e) => {
                     device.setSelectedBrand(brand)
-                    console.log(device.selectedBrand.id)
                 }}
             >
                 {brand.name}
