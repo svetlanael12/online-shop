@@ -5,6 +5,7 @@ import App from './App';
 import DeviceStore from './store/DeviceStore';
 import UserStore from './store/UserStore';
 import './nullstyle.scss';
+import BasketStore from './store/BasketStore';
 
 export const Context = createContext(null)
 
@@ -14,6 +15,7 @@ root.render(
   <Context.Provider value={{
     user: new UserStore(),
     device: new DeviceStore(),
+    basket: new BasketStore(),
   }}>
     <React.StrictMode>
       <App />
