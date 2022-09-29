@@ -11,15 +11,16 @@ const path = require('path')
 const PORT = process.env.PORT || 5000
 
 const app = express()
-// app.use(cors())
+
 app.use(cors({
     methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
 }));
 app.use(function(req, res, next) {
-    res.setHeader("Access-Control-Allow-Headers", "X-Requested-With,content-type, Accept,Authorization,Origin");
+    res.setHeader("Access-Control-Allow-Headers", "X-Requested-With,content-type, Accept,Origin");
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE");
     res.setHeader("Access-Control-Allow-Credentials", true);
+    res.setHeader("Content-Type", 'application/json');
     next();
   });
 app.use(express.json())

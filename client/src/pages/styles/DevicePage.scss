@@ -36,7 +36,6 @@
     border: 1px solid $basic-color;
     border-radius: 5px;
     @extend %box-shadow;
-
 }
 
 .DevicePage-title-name {
@@ -90,4 +89,20 @@
     font-size: 1.6rem;
     margin-bottom: 1rem;
     border-bottom: 1px solid $basic-color;
+}
+
+@media (max-width: 580px) {
+    .DevicePage {
+        flex-wrap: wrap;
+    }
+
+    .DevicePage-DeviceImage {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .DevicePage-block-basketPush {
+        margin-top: 2rem;
+        width: 100%;
+    }
 }
