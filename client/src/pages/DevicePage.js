@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { observer } from 'mobx-react-lite';
-import { Context } from '..';
 import { useParams } from 'react-router-dom';
 import { cn } from '@bem-react/classname';
 import './styles/DevicePage.scss';
@@ -9,7 +8,6 @@ import { fetchOneDevice } from '../http/DeviceAPI';
 const DevicePage = observer(() => {
     const [device, setDevice] = useState({info: []})
     const {id} = useParams()
-    const {basket} = useContext(Context)
 
     useEffect(() => {
         fetchOneDevice(id).then(data => setDevice(data))
@@ -17,19 +15,26 @@ const DevicePage = observer(() => {
 
     const addBasket = (name, price) => {
         if (JSON.parse(localStorage.getItem("basket"))) {
-            let storage = JSON.parse(localStorage.getItem("basket"))
-            let totalCount = storage.count
-            let basket = storage.basket
-            let ind = basket.findIndex((elem) => id === elem.deviceId)
-            if (ind === -1) {
-                basket.push({deviceId: id, name: name, price: price, count: 1})
+            if (JSON.parse(localStorage.getItem("basket")).length === 0) {
+                localStorage.setItem("basket", JSON.stringify({basket: [{deviceId: id, name: name, price: price, count: 1}], count: 1, totalPrice: price}))
             } else {
-                basket[ind].count += 1
+                let storage = JSON.parse(localStorage.getItem("basket"))
+                let totalCount = storage.count
+                let basket = storage.basket
+                let totalPrice = storage.totalPrice
+                let ind = basket.findIndex((elem) => id === elem.deviceId)
+                if (ind === -1) {
+                    basket.push({deviceId: id, name: name, price: price, count: 1})
+                } else {
+                    basket[ind].count += 1
+                }
+                totalCount += 1
+                totalPrice += price
+                localStorage.setItem("basket", JSON.stringify({basket, count: totalCount, totalPrice: totalPrice}))
+            
             }
-            totalCount += 1
-            localStorage.setItem("basket", JSON.stringify({basket, count: totalCount}))
-        } else {
-            localStorage.setItem("basket", JSON.stringify({basket: [{deviceId: id, name: name, price: price, count: 1}], count: 1}))
+            } else {
+            localStorage.setItem("basket", JSON.stringify({basket: [{deviceId: id, name: name, price: price, count: 1}], count: 1, totalPrice: price}))
         }
         alert('Товар добавлен в корзину')
     }

@@ -1,0 +1,40 @@
+@import '../../partial';
+
+.totalPrice {
+    font-size: 3rem;
+    color: $basic-color;
+    padding: 1.5rem 0;
+}
+
+.basket__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    @extend %item-bar;
+    cursor: default;
+}
+
+.basket__item_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.basket__item_btnRemove {
+    color: red;
+    padding: 0 1.5rem;
+    font-size: 4.6rem;
+    font-weight: 700;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.divNotBasket {
+    color: $basic-color;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 2rem;
+}

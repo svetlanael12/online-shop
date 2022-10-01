@@ -24,7 +24,11 @@ const App = observer(() => {
     <BrowserRouter>
       {
         loading ?
-        <div>Loading...</div> :
+        <div style={{
+          textAlign: 'center',
+          fontSize: '2rem',
+          marginTop: '2rem'
+        }}>Loading...</div> :
         <NavBar />
       }
       <AppRouter />

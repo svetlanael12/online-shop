@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Context } from '../..';
 import { ADMIN_ROUTE, BASKET_ROUTE, LOGIN_ROUTE, SHOP_ROUTE } from '../../utils/consts';
@@ -9,7 +9,6 @@ import './style.scss';
 
 const NavBar = observer(() => {
     const {user} = useContext(Context)
-    const [basket, setBasket] = useState('')
     const nav = cn('Nav')
 
     const checkRole = () => {

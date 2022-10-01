@@ -5,18 +5,25 @@ import './style.scss';
 
 const CreateType = ({show, setVisible}) => {
     const [value, setValue] = useState('')
+
     const addType = () => {
         createType({name: value}).then(() => {
             setValue('')
             setVisible(false)
         })
     }
+
     return (
         <div className={`modal ${show ? 'show' : 'none'}`}> 
             <div className='modal-container'>
                 <div className='modal-block_title'>
                     <h2 className='modal__title'>Добавить тип</h2>
-                    <button className='modal__buttonClose' onClick={() => setVisible(false)}>&times;</button>
+                    <button 
+                    className='modal__buttonClose' 
+                    onClick={() => setVisible(false)}
+                    >
+                        &times;
+                    </button>
                 </div>
                 <form className='modal__form formTypeModal'>
                     <input 
@@ -25,7 +32,13 @@ const CreateType = ({show, setVisible}) => {
                     value={value}
                     onChange={e => setValue(e.target.value)}
                     />
-                    <button onClick={addType} type='button' className='formTypeModal__button modal__button'>Добавить</button>
+                    <button 
+                    onClick={addType} 
+                    type='button' 
+                    className='formTypeModal__button modal__button'
+                    >
+                        Добавить
+                    </button>
                 </form>
             </div>
         </div>

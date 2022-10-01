@@ -21,6 +21,7 @@ const CreateDevice = ({show, setVisible}) => {
     const addInfo = () => {
         setInfo([...info, {title: '', description: '', number: Date.now()}])
     }
+    
     const removeInfo = (number) => {
         setInfo(info.filter(i => i.number !== number))
     }
